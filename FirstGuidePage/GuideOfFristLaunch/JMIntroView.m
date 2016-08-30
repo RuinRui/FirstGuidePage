@@ -71,10 +71,10 @@
     [self.scrollView addGestureRecognizer:tapGesture];
     
 //    注销自带的pageController
-//    self.pageCtrl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.frame.size.width - 100) / 2, self.frame.size.height - 100, 100, 30)];
-//    
-//    self.pageCtrl.numberOfPages = self.picArr.count;
-//    [self addSubview:self.pageCtrl];
+    self.pageCtrl = [[UIPageControl alloc] initWithFrame:CGRectMake((self.frame.size.width - 100) / 2, self.frame.size.height - 50, 100, 30)];
+    
+    self.pageCtrl.numberOfPages = self.picArr.count;
+    [self addSubview:self.pageCtrl];
 }
 
 #pragma mark - 展示欢迎页
@@ -108,6 +108,7 @@
 
 #pragma mark - 结束引导图
 - (void) introViewFinshed{
+    [self removeFromSuperview];
     if ([self.delegate respondsToSelector:@selector(introViewDidFinish:)]) {
         [self.delegate introViewDidFinish:self];
     }
@@ -162,7 +163,6 @@
     int currentPage = scrollView.contentOffset.x / self.frame.size.width;
 //    NSLog(@"scrollViewDidScroll === %d", currentPage);
     if (currentPage < self.picArr.count) {
-        
         UIImageView * imgV = self.picArr[currentPage];
         imgV.alpha = 1 - (scrollView.contentOffset.x - ((int)scrollView.contentOffset.x / (int)self.frame.size.width * self.frame.size.width)) / self.frame.size.width;
     }
@@ -193,6 +193,7 @@
     }
 //    当滚动停止的时候，若到了最后一页的下一页了，引导图结束，给代理发送消息
     if (currentPage == self.picArr.count) {
+        [self removeFromSuperview];
         if ([self.delegate respondsToSelector:@selector(introViewDidFinish:)]) {
             [self.delegate introViewDidFinish:self];
         }

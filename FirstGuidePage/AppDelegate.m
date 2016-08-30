@@ -10,7 +10,7 @@
 
 #import "JMIntroView.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<JMIntroViewDelegate>
 
 @end
 
