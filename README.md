@@ -8,4 +8,5 @@
 如果有Bug有兴趣的话可以联系我QQ：1525441472
 
 顺便发个福利 如下~
+
 ![image](https://github.com/RuinRui/FirstGuidePage/blob/master/demo.gif)
