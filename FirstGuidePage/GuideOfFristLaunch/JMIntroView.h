@@ -30,7 +30,7 @@
 @property (nonatomic, strong) UIPageControl * pageCtrl;
 /**获取点击的位置*/
 @property (nonatomic) CGPoint point;
-@property (nonatomic, assign) id <JMIntroViewDelegate> delegate;
+@property (nonatomic, weak) id <JMIntroViewDelegate> delegate;
 
 /**
  *  创建 欢迎页
